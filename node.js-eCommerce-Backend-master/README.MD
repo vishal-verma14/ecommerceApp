@@ -11,6 +11,51 @@ A complete e-commerce backend built with Node.js and Express, featuring user aut
 - Payment integration with Razorpay
 - Admin functionalities for order management
 
+## Admin API
+
+The backend includes a comprehensive set of admin APIs for managing the e-commerce platform:
+
+### Admin Authentication
+- Login with admin credentials
+- Secure admin routes with role-based access control
+
+### Product Management
+- Create, update, delete, and list all products
+- Bulk product operations
+- Product inventory management
+- Product image upload and management
+
+### Category Management
+- Create hierarchical category structure
+- Update and delete categories
+- Associate products with categories
+
+### Order Management
+- View all customer orders
+- Update order status (Processing, Shipped, Delivered, Cancelled)
+- Filter orders by status, date, or customer
+- Generate order reports
+
+### User Management
+- View all registered users
+- Update user roles and permissions
+- Disable/enable user accounts
+- View user purchase history
+
+### Dashboard Analytics
+- Sales reports and statistics
+- Inventory status
+- Top-selling products
+- Revenue trends and forecasts
+
+### Payment Management
+- View payment transactions
+- Process refunds
+- Manage failed payments
+- Payment reconciliation
+
+To access admin APIs, include the admin authentication token in your request headers. All admin endpoints are secured with middleware that verifies admin privileges.
+
 ## Tech Stack
 
 - Node.js
@@ -51,12 +96,18 @@ A complete e-commerce backend built with Node.js and Express, featuring user aut
 
 Comprehensive API documentation is available in the `e-commerce-api-documentation.md` file in the root directory. This includes:
 
-- All available endpoints
+- All available endpoints (both customer and admin)
 - Request/response formats
 - Authentication requirements
+- Role-based access control details
 - Testing guidelines
 
-Additionally, a Postman collection is available in `e-commerce-api-postman-collection.json` that you can import to quickly test all endpoints.
+The documentation is organized into sections:
+- Public APIs (no authentication required)
+- Customer APIs (customer authentication required)
+- Admin APIs (admin authentication required)
+
+Additionally, a Postman collection is available in `e-commerce-api-postman-collection.json` that you can import to quickly test all endpoints, including the admin functionality.
 
 ## Testing
 
@@ -92,10 +143,29 @@ Refer to the `automated_tests/README.md` for detailed information on the API tes
 ├── app.js                  # Application entry point
 ├── constants/              # Application constants
 ├── controllers/            # Route controllers
+│   ├── AuthController.js   # User & admin authentication
+│   ├── ProductController.js # Product management (includes admin endpoints)
+│   ├── CategoryController.js # Category management (includes admin endpoints)
+│   ├── OrderController.js  # Order processing (includes admin endpoints)
+│   └── PaymentController.js # Payment processing
 ├── helpers/                # Helper utilities
 ├── middlewares/            # Custom middleware
+│   ├── auth.js             # Authentication middleware
+│   └── admin.js            # Admin role verification middleware
 ├── models/                 # Mongoose models
+│   ├── user.js             # User model (includes admin role)
+│   ├── product.js          # Product model
+│   ├── category.js         # Category model
+│   ├── order.js            # Order model
+│   └── payment.js          # Payment model
 ├── routes/                 # API routes
+│   ├── api.js              # Main router
+│   ├── auth.js             # Authentication routes
+│   ├── admin.js            # Admin-specific routes
+│   ├── product.js          # Product routes (public & protected)
+│   ├── category.js         # Category routes
+│   ├── order.js            # Order routes
+│   └── payment.js          # Payment routes
 ├── validators/             # Input validation
 ├── workers/                # Background processing
 ├── tests/                  # Unit tests
