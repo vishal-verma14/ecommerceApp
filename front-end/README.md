@@ -1,25 +1,39 @@
-# Free eCommerce Template for Next.js - NextMerce
+# E-Commerce Frontend
 
-The free Next.js eCommerce template is a lite version of the NextMerce Next.js eCommerce boilerplate, designed to streamline the launch and management of your online store.
+This is the frontend application for our e-commerce platform built with Next.js, React, and TypeScript.
 
-![NextMerce](https://github.com/user-attachments/assets/57155689-a756-4222-8af7-134e556acae2)
+## Getting Started
 
+First, install the dependencies:
 
-While NextMerce Pro features advanced functionalities, seamless integration, and customizable options, providing all the essential tools needed to build and expand your business, the lite version offers a basic Next.js template specifically crafted for eCommerce websites. Both versions ensure superior performance and flexibility, all powered by Next.js.
+```bash
+npm install
+# or
+yarn install
+```
 
-### NextMerce Free VS NextMerce Pro
+Then, run the development server:
 
-| ✨ Features                         | 🎁 NextMerce Free                 | 🔥 NextMerce Pro                        |
-|----------------------------------|--------------------------------|--------------------------------------|
-| Next.js Pages                    | Static                         | Dynamic Boilerplate Template         |
-| Components                       | Limited                        | All According to Demo                |
-| eCommerce Functionality          | Included                       | Included                             |
-| Integrations (DB, Auth, etc.)    | Not Included                   | Included                             |
-| Community Support                | Included                       | Included                             |
-| Premium Email Support            | Not Included                   | Included                             |
-| Lifetime Free Updates            | Included                       | Included                             |
+```bash
+npm run dev
+# or
+yarn dev
+```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#### [🚀 Live Demo](https://demo.nextmerce.com/)
+## Features
 
-#### [🌐 Visit Website](https://nextmerce.com/)
+- User authentication (sign up, sign in)
+- Product browsing
+- Cart functionality
+- Checkout process
+- Order management
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Redux Toolkit for state management
+- Tailwind CSS for styling
