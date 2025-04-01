@@ -1,32 +1,53 @@
 import Link from "next/link";
 import React from "react";
 
-const Breadcrumb = ({ title, pages }) => {
+interface BreadcrumbProps {
+  pageName: string;
+  description: string;
+}
+
+const Breadcrumb = ({ pageName, description }: BreadcrumbProps) => {
   return (
-    <div className="overflow-hidden shadow-breadcrumb pt-[209px] sm:pt-[155px] lg:pt-[95px] xl:pt-[165px]">
-      <div className="border-t border-gray-3">
-        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 py-5 xl:py-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <h1 className="font-semibold text-dark text-xl sm:text-2xl xl:text-custom-2">
-              {title}
-            </h1>
-
-            <ul className="flex items-center gap-2">
-              <li className="text-custom-sm hover:text-blue">
-                <Link href="/">Home /</Link>
-              </li>
-
-              {pages.length > 0 &&
-                pages.map((page, key) => (
-                  <li className="text-custom-sm last:text-blue capitalize" key={key}>
-                    {page} 
-                  </li>
-                ))}
-            </ul>
+    <section className="bg-gray-100 py-16">
+      <div className="container">
+        <div className="flex flex-col items-center">
+          <h2 className="mb-3 text-3xl font-semibold text-black sm:text-4xl">
+            {pageName}
+          </h2>
+          <p className="text-base font-medium text-body-color">
+            {description}
+          </p>
+          <div className="mt-5 flex items-center">
+            <Link
+              href="/"
+              className="text-base font-medium text-body-color hover:text-primary"
+            >
+              Home
+            </Link>
+            <span className="mx-3">
+              <svg
+                width="6"
+                height="11"
+                viewBox="0 0 6 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.131887 9.88534L3.93792 5.54267L0.131887 1.2"
+                  stroke="#6B7280"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+            <span className="text-base font-medium text-primary">
+              {pageName}
+            </span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
